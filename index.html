@@ -1,0 +1,1397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Security Headers -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>DDPV - Development Data Partnership Vocabulary</title>
+  <meta name="description" content="A metadata vocabulary for documenting low-resource language audio, video, and text datasets for AI/ML applications, with focus on PII screening, sensitive content handling, and quality metrics.">
+  <meta name="keywords" content="metadata vocabulary, low-resource languages, AI datasets, PII screening, audio metadata, video metadata, OLAC, EBUCore, Croissant">
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+  <!-- Custom stylesheet -->
+  <link rel="stylesheet" href="main.css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Asap+Condensed&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "DefinedTermSet",
+    "name": "Development Data Partnership Vocabulary",
+    "alternateName": "DDPV",
+    "description": "A metadata vocabulary for documenting low-resource language datasets in AI/ML contexts",
+    "url": "https://datapartnership.org/ddvp-metadata-terms",
+    "identifier": "https://datapartnership.org/ddvp-metadata-terms#",
+    "version": "1.0",
+    "datePublished": "2025-01-15",
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Development Data Partnership"
+    }
+  }
+  </script>
+
+  <!-- Social Media -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="DDPV - Development Data Partnership Vocabulary" />
+  <meta property="og:description" content="Metadata vocabulary for low-resource language AI datasets" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="DDPV - Development Data Partnership Vocabulary" />
+  <meta name="twitter:description" content="Metadata vocabulary for low-resource language AI datasets" />
+
+  <!-- antiClickjack -->
+  <style id="antiClickjack">
+    body {
+      display: none !important;
+    }
+  </style>
+  <script type="text/javascript">
+    if (self === top) {
+      var antiClickjack = document.getElementById("antiClickjack");
+      antiClickjack.parentNode.removeChild(antiClickjack);
+    } else {
+      top.location = self.location;
+    }
+  </script>
+
+  <style>
+    .term-card {
+      border-left: 4px solid #0071bc;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      background-color: #f8f9fa;
+    }
+    .term-uri {
+      font-family: monospace;
+      background-color: #e9ecef;
+      padding: 0.25rem 0.5rem;
+      border-radius: 3px;
+      font-size: 0.9rem;
+    }
+    .badge-stable {
+      background-color: #28a745;
+    }
+    .badge-testing {
+      background-color: #ffc107;
+    }
+    pre {
+      background-color: #f8f9fa;
+      padding: 1rem;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    code {
+      color: #e83e8c;
+    }
+    .namespace-box {
+      background-color: #e7f3ff;
+      border: 2px solid #0071bc;
+      padding: 1.5rem;
+      border-radius: 5px;
+      margin: 2rem 0;
+    }
+    dl dt {
+      font-weight: bold;
+      margin-top: 0.5rem;
+    }
+    dl dd {
+      margin-left: 1.5rem;
+    }
+    .toc {
+      background-color: #f8f9fa;
+      padding: 1.5rem;
+      border-radius: 5px;
+      position: sticky;
+      top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="https://datapartnership.org">Development Data Partnership</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#overview">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#terms">Terms</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section>
+    <div class="container-fluid bg-primary-gradient pt-3">
+      <div class="container pb-5">
+        <div class="row d-flex">
+          <div class="col-lg-10 col-sm-12 mt-2 justify-content-center align-self-center">
+            <div class="text-light">
+              <h1 class="display-4 font-weight-bold">DDPV</h1>
+              <h2 class="h3 mt-3">Development Data Partnership Vocabulary</h2>
+              <div class="line"></div>
+              <p class="mt-4 lead">
+                A custom metadata vocabulary for documenting low-resource language audio, video, and text datasets 
+                in AI/ML contexts, with specialized terms for PII screening, sensitive content handling, participant 
+                demographics, and quality metrics.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Overview Section -->
+  <section id="overview" class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <h2>Overview</h2>
+          <p>
+            The Development Data Partnership Vocabulary (DDPV) defines specialized metadata terms to extend 
+            standard schemas for documenting datasets in low-resource language AI libraries. This vocabulary was 
+            developed to support the Gates Foundation funded initiative for democratizing access to 
+            high-quality datasets for low resource language AI model training.
+          </p>
+
+          <div class="namespace-box">
+            <h5>Namespace Declaration</h5>
+            <pre><code>@prefix ddpv: &lt;https://datapartnership.org/ddvp-metadata-terms#&gt; .</code></pre>
+            <p class="mb-0 mt-3"><strong>Version:</strong> 1.0</p>
+            <p><strong>Date Published:</strong> January 15, 2025</p>
+            <p><strong>License:</strong> <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a></p>
+            <p class="mb-0"><strong>Status:</strong> <span class="badge badge-stable">Testing</span></p>
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="line"></div>
+            <h3 class="mt-4 mb-3 h4-colors">Purpose and Scope</h3>
+            <p>DDPV provides terms for:</p>
+            <ul class="list-unstyled ml-3">
+              <li class="mb-2"><strong>Data Governance:</strong> PII screening methods, sensitive content classification, attribution requirements</li>
+              <li class="mb-2"><strong>Participant Metadata:</strong> Demographics, age ranges, dialect/regional variations, roles</li>
+              <li class="mb-2"><strong>Technical Quality:</strong> Equipment specifications, aggregation types, file counting</li>
+              <li class="mb-2"><strong>Multi-Modal Support:</strong> Audio, video, and text-specific metadata</li>
+            </ul>
+          </div>
+          
+          <div class="col-md-6">
+            <div class="line"></div>
+            <h3 class="mt-4 mb-3 h4-colors">Standards Compatibility</h3>
+            <p>DDPV extends and works alongside standards such as:</p>
+            <ul class="list-unstyled ml-3">
+              <li class="mb-2"><strong>Croissant 1.0</strong> (MLCommons) - Core dataset structure</li>
+              <li class="mb-2"><strong>EBUCore</strong> - Technical audio/video metadata</li>
+              <li class="mb-2"><strong>OLAC</strong> - Language archive metadata</li>
+              <li class="mb-2"><strong>Schema.org</strong> - General web semantics</li>
+              <li class="mb-2"><strong>RAI</strong> (MLCommons) - Responsible AI properties</li>
+              <li class="mb-2"><strong>DQV</strong> - Data quality vocabulary</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Terms Section -->
+
+
+<!-- Terms Section -->
+<section id="terms" class="py-5 bg-light">
+  <div class="container">
+    <h2 class="mb-4">Vocabulary Terms</h2>
+
+    <!-- Data Governance Terms -->
+    <h3 id="governance-terms" class="mt-5 mb-4 h3-colors">Data Governance Terms</h3>
+
+    <!-- piiScreening -->
+    <h4 id="piiScreening" class="mb-3 h4-colors">PII Screening</h4>
+    <div class="row mb-4">
+      <div class="col-md-6">
+        <div class="card h-100 term-card">
+          <div class="card-body">
+            <p class="term-uri">URI: https://datapartnership.org/ddvp-metadata-terms#piiScreening</p>
+            <dl class="mb-0">
+              <dt>Term:</dt>
+              <dd>ddpv:piiScreening</dd>
+
+              <dt>Definition:</dt>
+              <dd>Indicates whether any file in the dataset contains personally identifiable information (PII). 
+                  Set to true if PII is present; false otherwise.</dd>
+
+              <dt>Type:</dt>
+              <dd>Property</dd>
+
+              <dt>Domain:</dt>
+              <dd>sc:Dataset</dd>
+
+              <dt>Range:</dt>
+              <dd>xsd:boolean</dd>
+
+              <dt>Status:</dt>
+              <dd><span class="badge badge-stable">Stable</span></dd>
+
+              <dt>See also:</dt>
+              <dd>
+                <a href="#piiScreeningMethod">ddpv:piiScreeningMethod</a>, 
+                <a href="#piiNotes">ddpv:piiNotes</a>
+              </dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card h-100">
+          <div class="card-header bg-success text-white">
+            <strong>Example Usage</strong>
+          </div>
+          <div class="card-body">
+            <pre class="mb-0"><code>{
+  "ddpv:piiScreening": true
+}</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- piiScreeningMethod -->
+    <h4 id="piiScreeningMethod" class="mb-3 h4-colors"> PII Screening Method</h4>
+    <div class="row mb-4">
+      <div class="col-md-6">
+        <div class="card h-100 term-card">
+          <div class="card-body">
+            <p class="term-uri">URI: https://datapartnership.org/ddvp-metadata-terms#piiScreeningMethod</p>
+            <dl class="mb-0">
+              <dt>Term:</dt>
+              <dd>ddpv:piiScreeningMethod</dd>
+
+              <dt>Definition:</dt>
+              <dd>Method(s) applied to identify, remove, or mask personally identifiable information in the dataset.</dd>
+
+              <dt>Type:</dt>
+              <dd>Property</dd>
+
+              <dt>Domain:</dt>
+              <dd>sc:Dataset</dd>
+
+              <dt>Range:</dt>
+              <dd>One or more of: "manual_review", "automated_ner", "audio_redaction", "video_redaction", "hybrid", "other"</dd>
+
+              <dt>Status:</dt>
+              <dd><span class="badge badge-stable">Stable</span></dd>
+
+              <dt>Note:</dt>
+              <dd>If "other" is specified, use <a href="#piiScreeningMethodOther">ddpv:piiScreeningMethodOther</a> 
+                  to provide details.</dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card h-100">
+          <div class="card-header bg-success text-white">
+            <strong>Example Usage</strong>
+          </div>
+          <div class="card-body">
+            <pre class="mb-0"><code>{
+              "ddpv:piiScreeningMethod": [
+                "automated_ner", 
+                "manual_review"
+              ]
+            }</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- piiScreeningMethodOther -->
+    <h4 id="piiScreeningMethodOther" class="mb-3 h4-colors">PII Screening Method (Other) </h4>
+    <div class="row mb-4">
+      <div class="col-md-6">
+        <div class="card h-100 term-card">
+          <div class="card-body">
+            <p class="term-uri">URI: https://datapartnership.org/ddvp-metadata-terms#piiScreeningMethodOther</p>
+            <dl class="mb-0">
+              <dt>Term:</dt>
+              <dd>ddpv:piiScreeningMethodOther</dd>
+
+              <dt>Definition:</dt>
+              <dd>Free-text description of the PII screening method when "other" is selected in 
+                  <a href="#piiScreeningMethod">ddpv:piiScreeningMethod</a>.</dd>
+
+              <dt>Type:</dt>
+              <dd>Property</dd>
+
+              <dt>Domain:</dt>
+              <dd>sc:Dataset</dd>
+
+              <dt>Range:</dt>
+              <dd>xsd:string</dd>
+
+              <dt>Status:</dt>
+              <dd><span class="badge badge-stable">Stable</span></dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card h-100">
+          <div class="card-header bg-success text-white">
+            <strong>Example Usage</strong>
+          </div>
+          <div class="card-body">
+            <pre class="mb-0"><code>{
+              "ddpv:piiScreeningMethod": ["other"],
+              "ddpv:piiScreeningMethodOther": 
+                "Custom facial recognition masking"
+            }</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- piiNotes -->
+    <h4 id="piiNotes" class="mb-3 h4-colors">PII Notes </h4>
+    <div class="row mb-4">
+      <div class="col-md-6">
+        <div class="card h-100 term-card">
+          <div class="card-body">
+            <p class="term-uri">URI: https://datapartnership.org/ddvp-metadata-terms#piiNotes</p>
+            <dl class="mb-0">
+              <dt>Term:</dt>
+              <dd>ddpv:piiNotes</dd>
+
+              <dt>Definition:</dt>
+              <dd>Short note describing the type of personally identifiable information present in the dataset, 
+                  if any (e.g., "Names and phone numbers in transcripts").</dd>
+
+              <dt>Type:</dt>
+              <dd>Property</dd>
+
+              <dt>Domain:</dt>
+              <dd>sc:Dataset</dd>
+
+              <dt>Range:</dt>
+              <dd>xsd:string</dd>
+
+              <dt>Status:</dt>
+              <dd><span class="badge badge-stable">Stable</span></dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card h-100">
+          <div class="card-header bg-success text-white">
+            <strong>Example Usage</strong>
+          </div>
+          <div class="card-body">
+            <pre class="mb-0"><code>{
+            "ddpv:piiNotes": 
+              "Participant names mentioned in recordings"
+          }</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- sensitiveContent -->
+    <h4 id="sensitiveContent" class="mb-3 h4-colors">Sensitive Content</h4>
+    <div class="row mb-4">
+      <div class="col-md-6">
+        <div class="card h-100 term-card">
+          <div class="card-body">
+            <p class="term-uri">URI: https://datapartnership.org/ddvp-metadata-terms#sensitiveContent</p>
+            <dl class="mb-0">
+              <dt>Term:</dt>
+              <dd>ddpv:sensitiveContent</dd>
+
+              <dt>Definition:</dt>
+              <dd>Indicates whether the dataset contains sensitive, restricted, classified, or potentially harmful content. 
+                  Set to true if such content is present; false otherwise.</dd>
+
+              <dt>Type:</dt>
+              <dd>Property</dd>
+
+              <dt>Domain:</dt>
+              <dd>sc:Dataset</dd>
+
+              <dt>Range:</dt>
+              <dd>xsd:boolean</dd>
+
+              <dt>Status:</dt>
+              <dd><span class="badge badge-stable">Stable</span></dd>
+
+              <dt>See also:</dt>
+              <dd><a href="#sensitiveNotes">ddpv:sensitiveNotes</a></dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card h-100">
+          <div class="card-header bg-success text-white">
+            <strong>Example Usage</strong>
+          </div>
+          <div class="card-body">
+            <pre class="mb-0"><code>{
+              "ddpv:sensitiveContent": true
+            }</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- sensitiveNotes -->
+    <h4 id="sensitiveNotes" class="mb-3 h4-colors">Sensitive Content Notes</h4>
+    <div class="row mb-4">
+      <div class="col-md-6">
+        <div class="card h-100 term-card">
+          <div class="card-body">
+            <p class="term-uri">URI:https://datapartnership.org/ddvp-metadata-terms#sensitiveNotes</p>
+            <dl class="mb-0">
+              <dt>Term:</dt>
+              <dd>ddpv:sensitiveNotes</dd>
+
+              <dt>Definition:</dt>
+              <dd>Array of descriptions specifying the type(s) of sensitive content present 
+                  (e.g., "hate speech", "military data", "medical records").</dd>
+
+              <dt>Type:</dt>
+              <dd>Property</dd>
+
+              <dt>Domain:</dt>
+              <dd>sc:Dataset</dd>
+
+              <dt>Range:</dt>
+              <dd>Array of xsd:string</dd>
+
+              <dt>Status:</dt>
+              <dd><span class="badge badge-stable">Stable</span></dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card h-100">
+          <div class="card-header bg-success text-white">
+            <strong>Example Usage</strong>
+          </div>
+          <div class="card-body">
+            <pre class="mb-0"><code>{
+            "ddpv:sensitiveNotes": [
+              "politically sensitive content", 
+              "religious themes"
+            ]
+          }</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- attribution -->
+    <h4 id="attribution" class="mb-3 h4-colors">Attribution Required</h4>
+    <div class="row mb-4">
+      <div class="col-md-6">
+        <div class="card h-100 term-card">
+          <div class="card-body">
+            <p class="term-uri">URI: https://datapartnership.org/ddvp-metadata-terms#attribution</p>
+            <dl class="mb-0">
+              <dt>Term:</dt>
+              <dd>ddpv:attribution</dd>
+
+              <dt>Definition:</dt>
+              <dd>Indicates whether users must credit the source when using the dataset. 
+                  Default is true.</dd>
+
+              <dt>Type:</dt>
+              <dd>Property</dd>
+
+              <dt>Domain:</dt>
+              <dd>sc:Dataset</dd>
+
+              <dt>Range:</dt>
+              <dd>xsd:boolean</dd>
+
+              <dt>Status:</dt>
+              <dd><span class="badge badge-stable">Stable</span></dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card h-100">
+          <div class="card-header bg-success text-white">
+            <strong>Example Usage</strong>
+          </div>
+          <div class="card-body">
+            <pre class="mb-0"><code>{
+              "ddpv:attribution": true
+            }</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- thirdPartyRestrictions -->
+    <h4 id="thirdPartyRestrictions" class="mb-3 h4-colors">Third-Party Restrictions</h4>
+    <div class="row mb-4">
+      <div class="col-md-6">
+        <div class="card h-100 term-card">
+          <div class="card-body">
+            <p class="term-uri">URI: https://datapartnership.org/ddvp-metadata-terms#thirdPartyRestrictions</p>
+            <dl class="mb-0">
+              <dt>Term:</dt>
+              <dd>ddpv:thirdPartyRestrictions</dd>
+
+              <dt>Definition:</dt>
+              <dd>Description of any third-party intellectual property rights or usage restrictions 
+                  that apply to the dataset.</dd>
+
+              <dt>Type:</dt>
+              <dd>Property</dd>
+
+              <dt>Domain:</dt>
+              <dd>sc:Dataset</dd>
+
+              <dt>Range:</dt>
+              <dd>xsd:string</dd>
+
+              <dt>Status:</dt>
+              <dd><span class="badge badge-stable">Stable</span></dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card h-100">
+          <div class="card-header bg-success text-white">
+            <strong>Example Usage</strong>
+          </div>
+          <div class="card-body">
+            <pre class="mb-0"><code>{
+                "ddpv:thirdPartyRestrictions": 
+                  "Music tracks subject to copyright"
+              }</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- retentionPolicy -->
+    <h4 id="retentionPolicy" class="mb-3 h4-colors">Retention Policy</h4>
+    <div class="row mb-4">
+      <div class="col-md-6">
+        <div class="card h-100 term-card">
+          <div class="card-body">
+            <p class="term-uri">URI: https://datapartnership.org/ddvp-metadata-terms#retentionPolicy</p>
+            <dl class="mb-0">
+              <dt>Term:</dt>
+              <dd>ddpv:retentionPolicy</dd>
+
+              <dt>Definition:</dt>
+              <dd>Description of the data retention policy applicable to the dataset, including 
+                  storage duration and deletion procedures.</dd>
+
+              <dt>Type:</dt>
+              <dd>Property</dd>
+
+              <dt>Domain:</dt>
+              <dd>sc:Dataset</dd>
+
+              <dt>Range:</dt>
+              <dd>xsd:string</dd>
+
+              <dt>Status:</dt>
+              <dd><span class="badge badge-stable">Stable</span></dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card h-100">
+          <div class="card-header bg-success text-white">
+            <strong>Example Usage</strong>
+          </div>
+          <div class="card-body">
+            <pre class="mb-0"><code>{
+              "ddpv:retentionPolicy": 
+                "Data retained for 5 years"
+            }</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Participant Metadata Terms -->
+    <h3 id="participant-terms" class="mt-5 mb-4 h3-colors">Participant Metadata Terms</h3>
+
+    <!-- participants -->
+    <h4 id="participants" class="mb-3 h4-colors">Participants</h4>
+    <div class="row mb-4">
+      <div class="col-md-6">
+        <div class="card h-100 term-card">
+          <div class="card-body">
+            <p class="term-uri">URI: https://datapartnership.org/ddvp-metadata-terms#participants</p>
+            <dl class="mb-0">
+              <dt>Term:</dt>
+              <dd>ddpv:participants</dd>
+
+              <dt>Definition:</dt>
+              <dd>Array of participant information objects for audio/video files, including speakers, 
+                  interviewers, and other contributors. Each participant object should include role 
+                  and optional demographic information.</dd>
+
+              <dt>Type:</dt>
+              <dd>Property</dd>
+
+              <dt>Domain:</dt>
+              <dd>cr:FileObject (audio or video files)</dd>
+
+              <dt>Range:</dt>
+              <dd>Array of Participant objects</dd>
+
+              <dt>Status:</dt>
+              <dd><span class="badge badge-stable">Stable</span></dd>
+
+              <dt>See also:</dt>
+              <dd>
+                <a href="#ageRange">ddpv:ageRange</a>, 
+                <a href="#dialectRegion">ddpv:dialectRegion</a>
+              </dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card h-100">
+          <div class="card-header bg-success text-white">
+            <strong>Example Usage</strong>
+          </div>
+          <div class="card-body">
+            <pre class="mb-0"><code>{
+              "ddpv:participants": [
+                {
+                  "olac:role": "speaker",
+                  "olac:code": "SPK001",
+                  "sc:gender": "female",
+                  "ddpv:ageRange": "26-35",
+                  "ddpv:dialectRegion": "Northern"
+                }
+              ]
+            }</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ageRange -->
+    <h4 id="ageRange" class="mb-3 h4-colors">Age Range</h4>
+    <div class="row mb-4">
+      <div class="col-md-6">
+        <div class="card h-100 term-card">
+          <div class="card-body">
+            <p class="term-uri">URI:https://datapartnership.org/ddvp-metadata-terms#ageRange</p>
+            <dl class="mb-0">
+              <dt>Term:</dt>
+              <dd>ddpv:ageRange</dd>
+
+              <dt>Definition:</dt>
+              <dd>Age range bucket for a participant (e.g., "18-25", "26-35", "36-50"). 
+                  Used within participant metadata to categorize speakers/contributors by age group.</dd>
+
+              <dt>Type:</dt>
+              <dd>Property</dd>
+
+              <dt>Domain:</dt>
+              <dd>Participant object within ddpv:participants</dd>
+
+              <dt>Range:</dt>
+              <dd>xsd:string</dd>
+
+              <dt>Status:</dt>
+              <dd><span class="badge badge-stable">Stable</span></dd>
+
+              <dt>Recommended Values:</dt>
+              <dd>"0-12", "13-17", "18-25", "26-35", "36-50", "51-65", "65+"</dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card h-100">
+          <div class="card-header bg-success text-white">
+            <strong>Example Usage</strong>
+          </div>
+          <div class="card-body">
+            <pre class="mb-0"><code>{
+  "ddpv:ageRange": "26-35"
+}</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- dialectRegion -->
+    <h4 id="dialectRegion" class="mb-3 h4-colors">Dialect Region</h4>
+    <div class="row mb-4">
+      <div class="col-md-6">
+        <div class="card h-100 term-card">
+          <div class="card-body">
+            <p class="term-uri">URI: https://datapartnership.org/ddvp-metadata-terms#dialectRegion</p>
+            <dl class="mb-0">
+              <dt>Term:</dt>
+              <dd>ddpv:dialectRegion</dd>
+
+              <dt>Definition:</dt>
+              <dd>Dialect or regional variation descriptor for a participant's speech 
+                  (e.g., "Urban", "Coastal", "Northern", "Southern"). Used to document 
+                  linguistic variation within a language.</dd>
+
+              <dt>Type:</dt>
+              <dd>Property</dd>
+
+              <dt>Domain:</dt>
+              <dd>Participant object within ddpv:participants</dd>
+
+              <dt>Range:</dt>
+              <dd>xsd:string</dd>
+
+              <dt>Status:</dt>
+              <dd><span class="badge badge-stable">Stable</span></dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card h-100">
+          <div class="card-header bg-success text-white">
+            <strong>Example Usage</strong>
+          </div>
+          <div class="card-body">
+            <pre class="mb-0"><code>{
+              "ddpv:dialectRegion": "Central"
+            }</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Technical Quality Terms -->
+    <h3 id="technical-terms" class="mt-5 mb-4"> General Technical Quality Terms</h3>
+
+    <!-- equipmentType -->
+    <h4 id="equipmentType" class="mb-3 h4-colors">Equipment Type</h4>
+    <div class="row mb-4">
+      <div class="col-md-6">
+        <div class="card h-100 term-card">
+          <div class="card-body">
+            <p class="term-uri">URI: https://datapartnership.org/ddvp-metadata-terms#equipmentType</p>
+            <dl class="mb-0">
+              <dt>Term:</dt>
+              <dd>ddpv:equipmentType</dd>
+
+              <dt>Definition:</dt>
+              <dd>Recording device, microphone model, or camera model used to capture the media file 
+                  (free text description).</dd>
+
+              <dt>Type:</dt>
+              <dd>Property</dd>
+
+              <dt>Domain:</dt>
+              <dd>cr:FileObject (audio or video files)</dd>
+
+              <dt>Range:</dt>
+              <dd>xsd:string</dd>
+
+              <dt>Status:</dt>
+              <dd><span class="badge badge-stable">Stable</span></dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card h-100">
+          <div class="card-header bg-success text-white">
+            <strong>Example Usage</strong>
+          </div>
+          <div class="card-body">
+            <pre class="mb-0"><code>{
+              "ddpv:equipmentType": 
+                "Zoom H6 with Sennheiser MKH 416"
+            }</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- aggregationType -->
+    <h4 id="aggregationType" class="mb-3 h4-colors">Aggregation Type</h4>
+    <div class="row mb-4">
+      <div class="col-md-6">
+        <div class="card h-100 term-card">
+          <div class="card-body">
+            <p class="term-uri">URI: https://datapartnership.org/ddvp-metadata-terms#aggregationType</p>
+            <dl class="mb-0">
+              <dt>Ter,:</dt>
+              <dd>ddpv:aggregationType</dd>
+
+              <dt>Definition:</dt>
+              <dd>Method used to derive dataset-level quality metric values from file-level measurements 
+                  (e.g., "mean", "median", "sum", "weighted_mean").</dd>
+
+              <dt>Type:</dt>
+              <dd>Property</dd>
+
+              <dt>Domain:</dt>
+              <dd>dqv:QualityMeasurement</dd>
+
+              <dt>Range:</dt>
+              <dd>One of: "mean", "median", "sum", "min", "max", "count", "weighted_mean"</dd>
+
+              <dt>Status:</dt>
+              <dd><span class="badge badge-stable">Stable</span></dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card h-100">
+          <div class="card-header bg-success text-white">
+            <strong>Example Usage</strong>
+          </div>
+          <div class="card-body">
+            <pre class="mb-0"><code>{
+              "@type": "dqv:QualityMeasurement",
+              "dqv:isMeasurementOf": "ebucore:duration",
+              "dqv:value": 145.3,
+              "schema:unitText": "seconds",
+              "ddpv:aggregationType": "mean"
+            }</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NumFiles -->
+    <h4 id="NumFiles" class="mb-3 h4-colors">Number of Files </h4>
+    <div class="row mb-4">
+      <div class="col-md-6">
+        <div class="card h-100 term-card">
+          <div class="card-body">
+            <p class="term-uri">URI: https://datapartnership.org/ddvp-metadata-terms#NumFiles</p>
+            <dl class="mb-0">
+              <dt>Term:</dt>
+              <dd>ddpv:NumFiles</dd>
+
+              <dt>Definition:</dt>
+              <dd>Total count of files in the dataset. Used as a measurement dimension in 
+                  dqv:QualityMeasurement to report dataset size.</dd>
+
+              <dt>Type:</dt>
+              <dd>Measurement Dimension</dd>
+
+              <dt>Domain:</dt>
+              <dd>dqv:isMeasurementOf</dd>
+
+              <dt>Range:</dt>
+              <dd>xsd:integer</dd>
+
+              <dt>Status:</dt>
+              <dd><span class="badge badge-stable">Stable</span></dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card h-100">
+          <div class="card-header bg-success text-white">
+            <strong>Example Usage</strong>
+          </div>
+          <div class="card-body">
+            <pre class="mb-0"><code>{
+              "@type": "dqv:QualityMeasurement",
+              "dqv:isMeasurementOf": "ddpv:NumFiles",
+              "dqv:value": 1250,
+              "schema:unitText": "count",
+              "ddpv:aggregationType": "count"
+            }</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+<!-- Text Dataset Terms -->
+
+    <h3 id="text-terms" class="mt-5 mb-4 h3-colors">Text Dataset Terms</h3>
+    <p class="mb-4">The following terms are specific to text datasets and provide metadata for documenting text files and corpus-level quality metrics.</p>
+
+    <!-- File-level Text Properties -->
+    <h4 class="mt-4 mb-3"><em>File-Level Properties</em></h4>
+
+    <!-- charCount -->
+    <h4 id="charCount" class="mb-3 h4-colors">Character Count</h4>
+    <div class="row mb-4">
+      <div class="col-md-6">
+        <div class="card h-100 term-card">
+          <div class="card-body">
+            <p class="term-uri">URI: https://datapartnership.org/ddvp-metadata-terms#charCount</p>
+            <dl class="mb-0">
+              <dt>Term:</dt>
+              <dd>ddpv:charCount</dd>
+
+              <dt>Definition:</dt>
+              <dd>Total number of characters in the text document.</dd>
+
+              <dt>Type:</dt>
+              <dd>Property</dd>
+
+              <dt>Domain:</dt>
+              <dd>cr:FileObject (text files)</dd>
+
+              <dt>Range:</dt>
+              <dd>xsd:integer (minimum: 0)</dd>
+
+              <dt>Status:</dt>
+              <dd><span class="badge badge-stable">Stable</span></dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card h-100">
+          <div class="card-header bg-success text-white">
+            <strong>Example Usage</strong>
+          </div>
+          <div class="card-body">
+            <pre class="mb-0"><code>{
+  "ddpv:charCount": 125847
+}</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- tokenCount -->
+    <h4 id="tokenCount" class="mb-3 h4-colors">Token Count</h4>
+    <div class="row mb-4">
+      <div class="col-md-6">
+        <div class="card h-100 term-card">
+          <div class="card-body">
+            <p class="term-uri">URI: https://datapartnership.org/ddvp-metadata-terms#tokenCount</p>
+            <dl class="mb-0">
+              <dt>Term:</dt>
+              <dd>ddpv:tokenCount</dd>
+
+              <dt>Definition:</dt>
+              <dd>Total number of tokens in the text document (tokenization method should be documented in dataset metadata).</dd>
+
+              <dt>Type:</dt>
+              <dd>Property</dd>
+
+              <dt>Domain:</dt>
+              <dd>cr:FileObject (text files)</dd>
+
+              <dt>Range:</dt>
+              <dd>xsd:integer (minimum: 0)</dd>
+
+              <dt>Status:</dt>
+              <dd><span class="badge badge-stable">Stable</span></dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card h-100">
+          <div class="card-header bg-success text-white">
+            <strong>Example Usage</strong>
+          </div>
+          <div class="card-body">
+            <pre class="mb-0"><code>{
+  "ddpv:tokenCount": 24563
+}</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- qualityMetrics -->
+    <h4 id="qualityMetrics" class="mb-3 h4-colors">Quality Metrics</h4>
+    <div class="row mb-4">
+      <div class="col-md-6">
+        <div class="card h-100 term-card">
+          <div class="card-body">
+            <p class="term-uri">URI: https://datapartnership.org/ddvp-metadata-terms#qualityMetrics</p>
+            <dl class="mb-0">
+              <dt>Term:</dt>
+              <dd>ddpv:qualityMetrics</dd>
+
+              <dt>Definition:</dt>
+              <dd>Object containing quality metrics for this text document.</dd>
+
+              <dt>Type:</dt>
+              <dd>Property</dd>
+
+              <dt>Domain:</dt>
+              <dd>cr:FileObject (text files)</dd>
+
+              <dt>Range:</dt>
+              <dd>Object</dd>
+
+              <dt>Status:</dt>
+              <dd><span class="badge badge-stable">Stable</span></dd>
+
+              <dt>Properties:</dt>
+              <dd>
+                <ul>
+                  <li><strong>perplexityScore</strong>: Perplexity score (lower = more natural text)</li></ul>
+              </dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card h-100">
+          <div class="card-header bg-success text-white">
+            <strong>Example Usage</strong>
+          </div>
+          <div class="card-body">
+            <pre class="mb-0"><code>{
+            "ddpv:qualityMetrics": {
+              "perplexityScore": 142.3,
+            }
+          }</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dataset-level Measurement Dimensions -->
+    <h4 class="mt-5 mb-3"><em>Dataset-Level Quality Measurements for Text</em></h4>
+    <p class="mb-4">These terms are used as values for <code>dqv:isMeasurementOf</code> in dataset-level quality measurements.</p>
+
+    <!-- totalTokens -->
+    <h4 id="totalTokens" class="mb-3 h4-colors">Total Tokens</h4>
+    <div class="row mb-4">
+      <div class="col-md-6">
+        <div class="card h-100 term-card">
+          <div class="card-body">
+            <p class="term-uri">URI: https://datapartnership.org/ddvp-metadata-terms#totalTokens</p>
+            <dl class="mb-0">
+              <dt>Term:</dt>
+              <dd>ddpv:totalTokens</dd>
+
+              <dt>Definition:</dt>
+              <dd>Aggregate count of tokens across all documents in the dataset.</dd>
+
+              <dt>Type:</dt>
+              <dd>Measurement Dimension</dd>
+
+              <dt>Domain:</dt>
+              <dd>dqv:isMeasurementOf</dd>
+
+              <dt>Range:</dt>
+              <dd>xsd:number</dd>
+
+              <dt>Status:</dt>
+              <dd><span class="badge badge-stable">Stable</span></dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card h-100">
+          <div class="card-header bg-success text-white">
+            <strong>Example Usage</strong>
+          </div>
+          <div class="card-body">
+            <pre class="mb-0"><code>{
+  "@type": "dqv:QualityMeasurement",
+  "dqv:isMeasurementOf": "ddpv:totalTokens",
+  "dqv:value": 12584320,
+  "schema:unitText": "tokens",
+  "ddpv:aggregationType": "sum"
+}</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- vocabularySize -->
+    <h4 id="vocabularySize" class="mb-3 h4-colors">Vocabulary Size</h4>
+    <div class="row mb-4">
+      <div class="col-md-6">
+        <div class="card h-100 term-card">
+          <div class="card-body">
+            <p class="term-uri">URI: https://datapartnership.org/ddvp-metadata-terms#vocabularySize</p>
+            <dl class="mb-0">
+              <dt>Term:</dt>
+              <dd>ddpv:vocabularySize</dd>
+
+              <dt>Definition:</dt>
+              <dd>Number of unique tokens (vocabulary) in the dataset.</dd>
+
+              <dt>Type:</dt>
+              <dd>Measurement Dimension</dd>
+
+              <dt>Domain:</dt>
+              <dd>dqv:isMeasurementOf</dd>
+
+              <dt>Range:</dt>
+              <dd>xsd:number</dd>
+
+              <dt>Status:</dt>
+              <dd><span class="badge badge-stable">Stable</span></dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card h-100">
+          <div class="card-header bg-success text-white">
+            <strong>Example Usage</strong>
+          </div>
+          <div class="card-body">
+            <pre class="mb-0"><code>{
+  "@type": "dqv:QualityMeasurement",
+  "dqv:isMeasurementOf": "ddpv:vocabularySize",
+  "dqv:value": 98540,
+  "schema:unitText": "unique tokens",
+  "ddpv:aggregationType": "count"
+}</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- avgCharsPerDoc -->
+    <h4 id="avgCharsPerDoc" class="mb-3 h4-colors">Average Characters Per Document</h4>
+    <div class="row mb-4">
+      <div class="col-md-6">
+        <div class="card h-100 term-card">
+          <div class="card-body">
+            <p class="term-uri">URI: https://datapartnership.org/ddvp-metadata-terms#avgCharsPerDoc</p>
+            <dl class="mb-0">
+              <dt>Term:</dt>
+              <dd>ddpv:avgCharsPerDoc</dd>
+
+              <dt>Definition:</dt>
+              <dd>Average number of characters per document in the dataset.</dd>
+
+              <dt>Type:</dt>
+              <dd>Measurement Dimension</dd>
+
+              <dt>Domain:</dt>
+              <dd>dqv:isMeasurementOf</dd>
+
+              <dt>Range:</dt>
+              <dd>xsd:number</dd>
+
+              <dt>Status:</dt>
+              <dd><span class="badge badge-stable">Stable</span></dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card h-100">
+          <div class="card-header bg-success text-white">
+            <strong>Example Usage</strong>
+          </div>
+          <div class="card-body">
+            <pre class="mb-0"><code>{
+  "@type": "dqv:QualityMeasurement",
+  "dqv:isMeasurementOf": "ddpv:avgCharsPerDoc",
+  "dqv:value": 3542.8,
+  "schema:unitText": "characters",
+  "ddpv:aggregationType": "mean"
+}</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- avgTokensPerDoc -->
+    <h4 id="avgTokensPerDoc" class="mb-3 h4-colors">Average Tokens Per Document</h4>
+    <div class="row mb-4">
+      <div class="col-md-6">
+        <div class="card h-100 term-card">
+          <div class="card-body">
+            <p class="term-uri">URI: https://datapartnership.org/ddvp-metadata-terms#avgTokensPerDoc</p>
+            <dl class="mb-0">
+              <dt>Term:</dt>
+              <dd>ddpv:avgTokensPerDoc</dd>
+
+              <dt>Definition:</dt>
+              <dd>Average number of tokens per document in the dataset.</dd>
+
+              <dt>Type:</dt>
+              <dd>Measurement Dimension</dd>
+
+              <dt>Domain:</dt>
+              <dd>dqv:isMeasurementOf</dd>
+
+              <dt>Range:</dt>
+              <dd>xsd:number</dd>
+
+              <dt>Status:</dt>
+              <dd><span class="badge badge-stable">Stable</span></dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card h-100">
+          <div class="card-header bg-success text-white">
+            <strong>Example Usage</strong>
+          </div>
+          <div class="card-body">
+            <pre class="mb-0"><code>{
+  "@type": "dqv:QualityMeasurement",
+  "dqv:isMeasurementOf": "ddpv:avgTokensPerDoc",
+  "dqv:value": 1245.6,
+  "schema:unitText": "tokens",
+  "ddpv:aggregationType": "mean"
+}</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- NER_Coverage -->
+    <h4 id="NER_Coverage" class="mb-3 h4-colors">NER Coverage</h4>
+    <div class="row mb-4">
+      <div class="col-md-6">
+        <div class="card h-100 term-card">
+          <div class="card-body">
+            <p class="term-uri">URI: https://datapartnership.org/ddvp-metadata-terms#NER_Coverage</p>
+            <dl class="mb-0">
+              <dt>Term:</dt>
+              <dd>ddpv:NER_Coverage</dd>
+
+              <dt>Definition:</dt>
+              <dd>Percentage of documents in the dataset that include Named Entity Recognition (NER) annotations.</dd>
+
+              <dt>Type:</dt>
+              <dd>Measurement Dimension</dd>
+
+              <dt>Domain:</dt>
+              <dd>dqv:isMeasurementOf</dd>
+
+              <dt>Range:</dt>
+              <dd>xsd:number (0-100)</dd>
+
+              <dt>Status:</dt>
+              <dd><span class="badge badge-stable">Stable</span></dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card h-100">
+          <div class="card-header bg-success text-white">
+            <strong>Example Usage</strong>
+          </div>
+          <div class="card-body">
+            <pre class="mb-0"><code>{
+            "@type": "dqv:QualityMeasurement",
+            "dqv:isMeasurementOf": "ddpv:NER_Coverage",
+            "dqv:value": 78.5,
+            "schema:unitText": "percentage",
+            "ddpv:aggregationType": "percentage"
+          }</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-4">
+          <h6>About DDPV</h6>
+          <p>
+            
+          </p>
+        </div>
+        <div class="col-sm-6 col-md-3">
+          <h6>Quick Links</h6>
+          <ul class="footer-links">
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#terms">Vocabulary Terms</a></li>
+            <li><a href="#downloads">Downloads</a></li>
+            <li><a href="https://datapartnership.org">Development Data Partnership</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-12 col-md-3">
+          <h6>Contact</h6>
+          <ul class="footer-links">
+            <li>
+              <a href="mailto:datapartnership@worldbank.org">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                  class="bi bi-envelope" viewBox="0 0 16 16">
+                  <path
+                    d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383-4.758 2.855L15 11.114v-5.73zm-.034 6.878L9.271 8.82 8 9.583 6.728 8.82l-5.694 3.44A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.739zM1 11.114l4.758-2.876L1 5.383v5.73z" />
+                </svg> datapartnership@worldbank.org
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-sm-6 col-md-2">
+          <h6>Legal</h6>
+          <ul class="footer-links">
+            <li><a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0 License</a></li>
+            <li><a href="https://www.worldbank.org/en/about/legal">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <hr>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
+</body>
+
+</html> 
